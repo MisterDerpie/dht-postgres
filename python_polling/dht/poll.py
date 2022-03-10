@@ -1,4 +1,4 @@
-from database import TemperatureDatabase
+from database import DhtDatabase
 from dhtsensor import DhtSensor
 from time import sleep
 import traceback
@@ -6,11 +6,11 @@ import logging
 
 
 dhtsensor = DhtSensor()
-temperature_database = TemperatureDatabase()
+dht_database = DhtDatabase()
 
 while True:
     try:
-        temperature_database.insert_temperature(dhtsensor.get_temperature())
+        dht_database.insert_reading(dhtsensor.get_temperature(), dhtsensor.get_humidity())
         sleep(30)
     except Exception as e:
         logging.error(traceback.format_exc())

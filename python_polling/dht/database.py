@@ -3,15 +3,15 @@
 import psycopg2
 from time import sleep
 
-class TemperatureDatabase:
-    def insert_temperature(self, temperature):
+class DhtDatabase:
+    def insert_reading(self, temperature, humidity):
         connection = self.__get_connection()
-        self.__insert_temperature(temperature, connection)
+        self.__insert_reading(temperature, humidity, connection)
         connection.close()
 
-    def __insert_temperature(self, temperature, connection):
+    def __insert_reading(self, temperature, humidity, connection):
         cursor = connection.cursor()
-        cursor.execute(f'INSERT INTO temperature (temperature) VALUES ({temperature})')
+        cursor.execute(f'INSERT INTO readings (temperature, humidity) VALUES ({temperature}, {humidity})')
         cursor.close()
         connection.commit()
     
@@ -20,9 +20,9 @@ class TemperatureDatabase:
             return psycopg2.connect(
                 user="postgres",
                 password="test",
-                host="temperature_pg_db",
+                host="dht_db",
                 port="5432",
-                database="temperature"
+                database="dht_database"
             )
         except Exception as exception:
             print('Failed to connect, fallback and retry ...')
