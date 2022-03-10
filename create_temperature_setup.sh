@@ -2,6 +2,7 @@
 
 docker image build -t dht_db ./docker_database/
 docker image build -t dht_reader ./python_polling/
+docker image build -t dht_grafana ./grafana/
 docker create network create temperature
 
 docker container run -d \
@@ -13,3 +14,8 @@ docker container run -d \
     --net temperature \
     --device /dev/gpiomem \
     dht_reader
+docker container run -d \
+    --name dht_grafana \
+    --net temperature \
+    -p 80:3000 \
+    dht_grafana
