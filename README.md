@@ -16,5 +16,7 @@ Depending on the wiring and sensor, change `python_polling/dht/dhtsensor.py` on 
 
 ## Access Grafana
 
+![screenshot_grafana](./images/grafana.png)
+
 Grafana can be accessed at `{host}:80`.
 The credentials are the default user and password (`admin` each).
