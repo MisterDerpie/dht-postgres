@@ -1,252 +1,263 @@
 {
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": "-- Grafana --",
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "target": {
-            "limit": 100,
-            "matchAny": false,
-            "tags": [],
-            "type": "dashboard"
-          },
-          "type": "dashboard"
-        }
-      ]
-    },
-    "editable": true,
-    "fiscalYearStartMonth": 0,
-    "graphTooltip": 0,
-    "id": 1,
-    "links": [],
-    "liveNow": false,
-    "panels": [
+  "annotations": {
+    "list": [
       {
-        "description": "",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
             },
-            "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineStyle": {
-                "fill": "solid"
-              },
-              "lineWidth": 1,
-              "pointSize": 1,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
             },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
             }
           },
-          "overrides": [
-            {
-              "matcher": {
-                "id": "byName",
-                "options": "temperature"
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
               },
-              "properties": [
-                {
-                  "id": "custom.axisPlacement",
-                  "value": "right"
-                },
-                {
-                  "id": "custom.axisSoftMin",
-                  "value": -5
-                },
-                {
-                  "id": "custom.axisSoftMax",
-                  "value": 35
-                }
-              ]
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "temperature"
             },
-            {
-              "matcher": {
-                "id": "byName",
-                "options": "humidity"
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "left"
               },
-              "properties": [
-                {
-                  "id": "custom.axisSoftMin",
-                  "value": 0
-                },
-                {
-                  "id": "custom.axisSoftMax",
-                  "value": 100
-                }
-              ]
+              {
+                "id": "custom.axisSoftMin",
+                "value": -5
+              },
+              {
+                "id": "custom.axisSoftMax",
+                "value": 35
+              },
+              {
+                "id": "custom.axisLabel",
+                "value": "Temperature"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "humidity"
+            },
+            "properties": [
+              {
+                "id": "custom.axisSoftMin",
+                "value": 0
+              },
+              {
+                "id": "custom.axisSoftMax",
+                "value": 100
+              },
+              {
+                "id": "custom.axisLabel",
+                "value": "Humidity"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "GvPKorL7k"
+          },
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  \"timestamp\" AS \"time\",\n  avg(temperature) OVER (ORDER BY \"timestamp\" ROWS 7 PRECEDING) AS \"temperature\"\nFROM readings\nWHERE\n  $__timeFilter(\"timestamp\")\nORDER BY 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "temperature"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "avg",
+                  "7"
+                ],
+                "type": "moving_window"
+              },
+              {
+                "params": [
+                  "temperature"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "readings",
+          "timeColumn": "\"timestamp\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
             }
           ]
         },
-        "gridPos": {
-          "h": 9,
-          "w": 12,
-          "x": 0,
-          "y": 0
-        },
-        "id": 2,
-        "options": {
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom"
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "GvPKorL7k"
           },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "datasource": {
-              "type": "postgres",
-              "uid": "GvPKorL7k"
-            },
-            "format": "time_series",
-            "group": [],
-            "metricColumn": "none",
-            "rawQuery": false,
-            "rawSql": "SELECT\n  \"timestamp\" AS \"time\",\n  avg(temperature) OVER (ORDER BY \"timestamp\" ROWS 30 PRECEDING) AS \"temperature\"\nFROM readings\nWHERE\n  $__timeFilter(\"timestamp\")\nORDER BY 1",
-            "refId": "A",
-            "select": [
-              [
-                {
-                  "params": [
-                    "temperature"
-                  ],
-                  "type": "column"
-                },
-                {
-                  "params": [
-                    "avg",
-                    "30"
-                  ],
-                  "type": "moving_window"
-                },
-                {
-                  "params": [
-                    "temperature"
-                  ],
-                  "type": "alias"
-                }
-              ]
-            ],
-            "table": "readings",
-            "timeColumn": "\"timestamp\"",
-            "timeColumnType": "timestamp",
-            "where": [
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  \"timestamp\" AS \"time\",\n  avg(humidity) OVER (ORDER BY \"timestamp\" ROWS 10 PRECEDING) AS \"humidity\"\nFROM readings\nWHERE\n  $__timeFilter(\"timestamp\")\nORDER BY 1",
+          "refId": "B",
+          "select": [
+            [
               {
-                "name": "$__timeFilter",
-                "params": [],
-                "type": "macro"
+                "params": [
+                  "humidity"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "avg",
+                  "10"
+                ],
+                "type": "moving_window"
+              },
+              {
+                "params": [
+                  "humidity"
+                ],
+                "type": "alias"
               }
             ]
-          },
-          {
-            "datasource": {
-              "type": "postgres",
-              "uid": "GvPKorL7k"
-            },
-            "format": "time_series",
-            "group": [],
-            "hide": false,
-            "metricColumn": "none",
-            "rawQuery": false,
-            "rawSql": "SELECT\n  \"timestamp\" AS \"time\",\n  avg(humidity) OVER (ORDER BY \"timestamp\" ROWS 20 PRECEDING) AS \"humidity\"\nFROM readings\nWHERE\n  $__timeFilter(\"timestamp\")\nORDER BY 1",
-            "refId": "B",
-            "select": [
-              [
-                {
-                  "params": [
-                    "humidity"
-                  ],
-                  "type": "column"
-                },
-                {
-                  "params": [
-                    "avg",
-                    "20"
-                  ],
-                  "type": "moving_window"
-                },
-                {
-                  "params": [
-                    "humidity"
-                  ],
-                  "type": "alias"
-                }
-              ]
-            ],
-            "table": "readings",
-            "timeColumn": "\"timestamp\"",
-            "timeColumnType": "timestamp",
-            "where": [
-              {
-                "name": "$__timeFilter",
-                "params": [],
-                "type": "macro"
-              }
-            ]
-          }
-        ],
-        "title": "DHT11 Values",
-        "type": "timeseries"
-      }
-    ],
-    "refresh": "",
-    "schemaVersion": 35,
-    "style": "dark",
-    "tags": [],
-    "templating": {
-      "list": []
-    },
-    "time": {
-      "from": "now-3h",
-      "to": "now"
-    },
-    "timepicker": {},
-    "timezone": "",
-    "title": "DHT11",
-    "uid": "jbz3orYnk",
-    "version": 4,
-    "weekStart": ""
-  }
+          ],
+          "table": "readings",
+          "timeColumn": "\"timestamp\"",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "DHT11 Values",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-3h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "DHT11",
+  "uid": "jbz3orYnk",
+  "version": 1,
+  "weekStart": ""
+}
